@@ -3,17 +3,16 @@ import Post from './Post'
 import './Feed.css'
 import FeedHelper from '../Objects/feedHelper'
 
-function Feed() {
+function Feed(dataManager) {
   var helper = useRef(new FeedHelper).current
   
   const [posts, setPosts] = useState(helper.currentPosts)
 
   useEffect(() => {  
     window.addEventListener('scroll', function () {
-      helper.handleScroll()
+      helper.handleScroll(dataManager)
       if(helper.checkLastPost()) {
-        helper.addNewPosts()
-        setPosts([...helper.currentPosts])
+        setPosts([...helper.addNewPosts()])
       }
     })
   }, [])

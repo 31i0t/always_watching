@@ -1,9 +1,116 @@
+
 .post {
-    background-color: grey;
-    margin-bottom: 2rem;
+    max-width: 30rem;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+
+.post .title {
+    width: 100%;
+    height: 2.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0.3rem 0;
+}
+
+.post .title h1 {
+    font-family: 'Segoe UI';
+    font-size: 0.875rem;
+    color: #262626;
+    font-weight: 600;
+    line-height: 2rem;
+}
+
+.post .title .profile {
+    margin-left: 0.3rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+.post .title .username {
+    margin-left: 0.5rem;
+}
+
+.post .title .circle {
+    margin-left: 0.5rem;
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 50%/50%;
+    background-color: #363636;
+}
+
+.post .title .follow {
+    margin-left: 0.5rem;
+    color: #34B8FF;
+}
+
+.post .title .timer {
+    margin-right: 0.3rem;
+    margin-left: auto;
+    font-size: 1.15rem;
+    font-weight: 900;
+}
+
+.post .content img {
+    width: 100%;
+}
+
+.post .action-bar {
+    width: 100%;
+    height: 2.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.post .action-bar img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+.post .action-bar .share {
+    margin-right: 0.5rem;
+    margin-left: auto;
+}
+
+.post .comment-section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 30rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0 0.5rem;
+}
+
+.post .comment-section p {
+    margin: 0;
+    margin-bottom: 0.2rem;
+    font-family: 'Segoe UI';
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #262626;
+    text-align: left;
+
+}
+
+.post .comment-section .bold {
+    font-weight: 600;
+}
+
+.post .comment-section .comments {
+    color: #8e8e8e
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('../fonts/SegoeUI.eot');
+    src: url('../fonts/SegoeUI.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SegoeUI.woff2') format('woff2'),
+        url('../fonts/SegoeUI.woff') format('woff'),
+        url('../fonts/SegoeUI.ttf') format('truetype'),
+        url('../fonts/SegoeUI.svg#SegoeUI') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }

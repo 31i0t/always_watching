@@ -1,0 +1,26 @@
+#data .category {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: min-content;
+    align-items: center;
+    background-color: white;
+    box-shadow: rgba(122, 122, 199, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 0.5rem;
+    color: #949494;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#data .category h2 {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+#data .category h3 {
+    margin: 0;
+    font-size: 0.7rem;
+    margin-left: 0.2rem;
+    font-weight: 100;
+}

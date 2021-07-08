@@ -1,3 +1,12 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#feed {
+    width: 100%;
+}
+
 .active {
     background-color: red;
 }

@@ -60,7 +60,7 @@ class CooldownQueue {
     }
 
     #popRandomElement() {
-        var idxToSwap = Math.round(Math.random() * this.elements.length)
+        var idxToSwap = Math.round(Math.random() * (this.elements.length - 1))
         this.#swap(this.elements, idxToSwap, this.elements.length - 1)
         return this.elements.pop()
     }

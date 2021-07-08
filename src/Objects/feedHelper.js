@@ -1,29 +1,30 @@
 import CooldownQueue from './cooldownQueue'
-import postData from '../Components/postData'
+import Selector from './selector'
 
 function FeedHelper() {
     this.postRefs = []
     this.currentlyViewing = undefined
-    this.currentPosts = postData
-    this.masterData = {}
     this.queue = new CooldownQueue()
+    this.selector = new Selector()
+    this.currentPosts = this.selector.getPostsRandom(10)
 
     var self = this
+    var isTracking = false
 
     this.addNewPosts = function() {
-        self.currentPosts.push({title: "I added this on my own!"})
+        self.currentPosts.push(this.selector.getPostRandom())
         return self.currentPosts
     }
 
-    this.handleScroll = function() {
-        updateActivePost()
-        trackCurrentPost()
+    this.handleScroll = function(dataManager) {
+         updateActivePost()
+        trackCurrentPost(dataManager)
     }
 
     this.checkLastPost = function() {
         var bottomOfView = window.pageYOffset + window.innerHeight
 
-        var lastPostDimensions = self.postRefs[self.postRefs.length - 1].current.getBoundingClientRect()
+        var lastPostDimensions = self.postRefs[self.postRefs.length - 2].current.getBoundingClientRect()
         var bottomOfFeed = window.pageYOffset + lastPostDimensions.y + lastPostDimensions.height
 
         if(bottomOfView >= bottomOfFeed) {
@@ -33,33 +34,33 @@ function FeedHelper() {
         return false
     }
 
-    function trackCurrentPost() {
+    function trackCurrentPost(dataManager) {
         if(self.currentlyViewing == undefined) {return}
 
-        var currentPost = self.currentlyViewing
-        var timerElement = self.currentlyViewing.current.getElementsByClassName("timer")[0]
+        var currentPost = self.postRefs[self.currentlyViewing]
+        var timerElement = currentPost.current.getElementsByClassName("timer")[0]
         var timerStartValue = parseFloat(timerElement.innerText)
+        
+        if(isTracking) {return}
 
-        setInterval(function() {
-            if(currentPost != self.currentlyViewing) {return}
-            timerElement.innerText = Math.round(100*timerStartValue)/100
+        var timer = setInterval(function() {
+            if(currentPost != self.postRefs[self.currentlyViewing]) {
+                isTracking = false
+                clearInterval(timer)
+                return
+            }
+
+            isTracking = true
+
+            timerElement.innerText = (Math.round(100*timerStartValue)/100).toFixed(2)
             timerStartValue += 0.01
+            dataManager.data[self.currentPosts[self.currentlyViewing].category] += 0.01
         }, 10)
 
     }
 
     function updateActivePost() {
         var result = binarySearchPosts(getUserViewingPoint(window))
-        
-        if(result != self.currentlyViewing) {
-            if(self.currentlyViewing != undefined) {
-                self.currentlyViewing.current.classList.remove("active")
-            }
-            if(result != undefined) {
-                result.current.classList.add('active')
-            }
-        }
-
         self.currentlyViewing = result
     }
 
@@ -80,7 +81,7 @@ function FeedHelper() {
             var mid = Math.floor((left + right) / 2)
             var result = checkOnPost(currentPosition, self.postRefs[mid])
             if(result == true) {
-                return self.postRefs[mid]
+                return mid
             }
             else if(result < currentPosition) {
                 left = mid + 1
@@ -105,8 +106,12 @@ function FeedHelper() {
         else {
             return (top + bottom) / 2
         }
+    }
 
-
+    this.getRandomNumber = function(array) {
+        var min = array[0]
+        var max = array[1]
+        return Math.floor(Math.random() * (max - min + 1)) + min
     }
 
 
