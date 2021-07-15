@@ -1,17 +1,21 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import DataPoint from './DataPoint'
 import './Data.css'
 
 function Data(dataManager) {
-  var dataUpdateSet = useRef(false).current
 
   const [data, setData] = useState(dataManager.getEngagingContentData())
 
   useEffect(() => {
-      setInterval(function() {
-        var engagingContentArray = dataManager.getEngagingContentData()
+      let dataUpdate = setInterval(() => {
+        let engagingContentArray = dataManager.getEngagingContentData()
         setData([...engagingContentArray])
-      }, 1000)
+      }, 100)
+      
+      return () => {
+        clearInterval(dataUpdate)
+      }
+
   }, [])
   
   return (

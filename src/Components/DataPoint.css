@@ -7,7 +7,7 @@
     background-color: white;
     box-shadow: rgba(122, 122, 199, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     border-radius: 0.5rem;
-    color: #949494;
+    color: #808080;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
 }
@@ -20,7 +20,7 @@
 
 #data .category h3 {
     margin: 0;
-    font-size: 0.7rem;
+    font-size: 0.55rem;
     margin-left: 0.2rem;
     font-weight: 100;
 }

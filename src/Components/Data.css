@@ -1,4 +1,5 @@
 #data {
+    z-index: 1;
     position: -webkit-sticky;
     position: sticky;
     display: flex;
@@ -8,6 +9,8 @@
     height: 0;
     font-family: 'Segoe UI';
     white-space: nowrap;
+    opacity: 0;
+    animation: fadein 1.5s ease forwards;
 }
 
 #data h1 {

@@ -1,37 +1,66 @@
-import React, {useRef, useEffect} from 'react'
+import React, {useRef, useEffect, useState} from 'react'
 import './Post.css'
-
 
 function Post(props) {
   const postRef = useRef(null)
-  const {helper, index} = props
+  const {feedHelper, index} = props
+  
+  const comments = useRef(feedHelper.getRandomNumber(feedHelper.currentPosts[index].allComments)).current
+
+  const [likes, setLikes] = useState(feedHelper.getRandomNumber(feedHelper.currentPosts[index].likedBy))
+  const [liked, setLiked] = useState(false)
+
+  const [bookmarked, setBookmarked] = useState(false)
+
+  const updateLiked = () => {
+    if(liked) {
+      setLikes(likes - 1)
+    } else {
+      setLikes(likes + 1)
+    }
+    setLiked(!liked)
+  }
 
   useEffect(() => {
-    helper.postRefs.push(postRef)
+    feedHelper.postRefs.push(postRef)
   }, [])
   
   return (
-    <div ref={postRef} className="post">
+    <div ref = {postRef} className="post">
       <div className = 'title'> 
-          <img className = 'profile' src = {helper.currentPosts[index].profile}></img>
-          <h1 className = 'username'>{helper.currentPosts[index].username}</h1>
-          <div className = 'circle'></div>
-          <h1 className = 'follow'>Follow</h1>
+          <div className = 'postInfo'>
+            <img className = 'profile' src = {feedHelper.currentPosts[index].profile}></img>
+            <h1 className = 'username'>{feedHelper.currentPosts[index].username}</h1>
+            <div className = 'circle'></div>
+            <h1 className = 'follow'>Follow</h1>
+          </div>
           <h1 className = 'timer'>0.00</h1>
       </div>
       <div className = 'content'>
-          <img src={helper.currentPosts[index].post}></img>
+          <div className = 'thumbnail'>
+            <div className = 'whitespace'></div>
+            <svg className = "thumbnailSpinner" viewBox="0 0 100 100">
+              <path d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50">
+              </path>
+            </svg>
+          </div>
+          <img className = 'postImg' onLoad = {((e) =>  feedHelper.loadImage(e, index))} onError = {((e) =>  feedHelper.handleError(e, index))} src={feedHelper.currentPosts[index].post}></img>
       </div>
       <div className = 'action-bar'>
-          <img src = './icons/like.png' className = 'like'></img>
-          <img src = './icons/comment.png' className = 'comment'></img>
-          <img src = './icons/share.png' className = 'share'></img>
+          <button onClick={updateLiked}>
+            <img src = {liked ? './icons/liked.svg' : './icons/like.svg'}></img>
+          </button>
+          <img src = './icons/comment.svg' className = "comment"></img>
+          <img src = './icons/share.svg' className = "share"></img>
+          <button onClick = {() => setBookmarked(!bookmarked)} className = 'bookmark'>
+            <img src = {bookmarked ? './icons/bookmarked.svg' : './icons/bookmark.svg'}></img>
+          </button>
       </div>
       <div className = 'comment-section'>
-          <p>Liked by <span className = 'bold'>{helper.currentPosts[index].likedByName}</span> and <span className = 'bold'>{helper.getRandomNumber(helper.currentPosts[index].likedBy)} others</span></p>
-          <p><span className = 'bold'>{helper.currentPosts[index].username}</span>{helper.currentPosts[index].caption}</p>
-          <p><span className = 'comments'>View all {helper.getRandomNumber(helper.currentPosts[index].allComments)} comments</span></p>
-          {helper.currentPosts[index].comments.map((comment) => {
+          <p>Liked by <span className = 'bold'>{feedHelper.currentPosts[index].likedByName}</span> and <span className = 'bold'>{likes} others</span></p>
+          <p><span className = 'bold'>{feedHelper.currentPosts[index].username}</span>&nbsp;{feedHelper.currentPosts[index].caption}</p>
+          <p><span className = 'comments'>View all {comments} comments</span></p>
+          {feedHelper.currentPosts[index].comments.map((comment) => {
             return (
               <p><span className = 'bold'>{comment.username}</span>{" " + comment.comment}</p>
             )

@@ -7,32 +7,32 @@ class DataManager {
     }
 
     #getInitialDataObject(array) {
-        var data = {}
-        for(var i = 0; i < array.length; i++) {
+        let data = {}
+        for(let i = 0; i < array.length; i++) {
             data[array[i]] = 0
         }
         return data
     }
 
     #getInitialEngagingContent(array) {
-        var engagingContent = {}
-        for(var i = 0; i < array.length; i++) {
+        let engagingContent = {}
+        for(let i = 0; i < array.length; i++) {
             engagingContent[array[i]] = 0
         }
         return engagingContent
     }
 
-    getEngagingContentData = function() {
-        var engagingContentArray = []
+    getEngagingContentData = () => {        
+        let engagingContentArray = []
 
-        var totalTimeSpent = 0
+        let totalTimeSpent = 0
 
-        for(var category in this.data) {
-            totalTimeSpent += this.data[category]
+        for(let category in this.data) {
+            totalTimeSpent += this.data[category] ** 2
         }
 
-        for(var category in this.engagingContent) {
-            var percentage = Math.round((this.data[category] / totalTimeSpent) * 100)
+        for(let category in this.engagingContent) {
+            let percentage = Math.round(((this.data[category] ** 2) / totalTimeSpent) * 100)
 
             this.engagingContent[category] = percentage
 

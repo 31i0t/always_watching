@@ -1,0 +1,57 @@
+.message {
+    z-index: 1;
+    position: fixed;
+    margin-left: 0.5rem;
+    bottom: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: max-content; 
+    align-items: center;
+    background-color: white;
+    box-shadow: rgba(122, 122, 199, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 0.5rem;
+    color: #262626;
+    padding: 0.7rem;
+    font-family: 'Segoe UI';
+    height: min-content;
+    transform: translateX(-40%);
+    opacity: 0;
+    transition: all 0.25s ease-out;
+}
+
+.message h1, .message h2, .message h3 {
+    margin: 0;
+    padding-right: 0.5rem;
+    font-size: 0.925rem;
+    font-weight: 400;
+    white-space: wrap;
+    max-width: 50vw;
+
+}
+
+.messageMiddle {
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+.messageEnd {
+    transform: translateX(30%);
+    opacity: 0;
+}
+
+.importing, .doneImporting {
+    height: 1.25rem;
+    width: 1.25rem;
+    white-space: nowrap;
+    margin: auto;
+}
+
+.importing {
+    animation: spinner .4s linear infinite;
+}
+
+.doneImporting {
+    opacity: 0;
+    animation: fadein 0.3s ease forwards
+}

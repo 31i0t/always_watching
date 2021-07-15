@@ -12,7 +12,7 @@ class LinkedList {
     }
 
     enqueue(value) {
-        if(this.tail == null) {
+        if(this.head === null) {
             this.tail = new Node(value)
             this.head = this.tail
             return
@@ -22,14 +22,11 @@ class LinkedList {
     }
 
     dequeue() {
-        if(this.head == null) {
-            return null
+        if(this.head === null) {
+            return console.error("You can't delete the Linked List")
         }
-        if(this.head.next == null) {
-            console.error("You can't delete the Linked List")
-            return
-        }
-        var valToReturn = this.head.value
+
+        let valToReturn = this.head.value
         this.head = this.head.next
         return valToReturn
     }
@@ -43,38 +40,38 @@ class CooldownQueue {
     }
     
     #populateElements(n) {
-        var elements = []
-        for(var i = 0; i < n; i++) {
+        let elements = []
+        for(let i = 0; i < n; i++) {
             elements.push(i)
         }
         return elements
     }
 
-    getElement = function() {
-        var valToReturn = this.#popRandomElement()
+    getElement = () => {
+        let valToReturn = this.#popRandomElement()
+        this.queue.enqueue(valToReturn)
         if(this.elements.length < this.cooldownInt) {
             this.elements.push(this.queue.dequeue())
         }
-        this.queue.enqueue(valToReturn)
         return valToReturn
     }
 
     #popRandomElement() {
-        var idxToSwap = Math.round(Math.random() * (this.elements.length - 1))
+        let idxToSwap = Math.round(Math.random() * (this.elements.length - 1))
         this.#swap(this.elements, idxToSwap, this.elements.length - 1)
         return this.elements.pop()
     }
 
     #swap(array, i, j) {
-        var x = array[i]
+        let x = array[i]
         array[i] = array[j]
         array[j] = x
         return array
     }
 
-    getElements = function(n) {
-        var elementsToReturn = []
-        for(var i = 0; i < n; i++) {
+    getElements = (n) => {
+        let elementsToReturn = []
+        for(let i = 0; i < n; i++) {
             elementsToReturn.push(this.getElement())
         }
         return elementsToReturn
