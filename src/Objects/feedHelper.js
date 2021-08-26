@@ -165,7 +165,7 @@ function FeedHelper() {
       const predictionToAdd = predictions.pop()
       const postPredictionElement = 
         this.postRefs[i].current.getElementsByClassName("prediction")[0]
-      postPredictionElement.innerText = predictionToAdd
+      postPredictionElement.textContent = predictionToAdd
 
       i -= 1
     }
@@ -206,7 +206,7 @@ function FeedHelper() {
     const currentPostObj = this.currentPosts[this.currentlyViewing]
     const timerElement = 
       currentPostRef.current.getElementsByClassName("timer")[0]
-    let timerStartValue = parseFloat(timerElement.innerText)
+    let timerStartValue = parseFloat(timerElement.textContent)
 
     const timer = setInterval(() => {
       if(currentPostRef !== this.postRefs[this.currentlyViewing]) {
@@ -215,7 +215,7 @@ function FeedHelper() {
         return
       }
 
-      timerElement.innerText = timerStartValue.toFixed(1)
+      timerElement.textContent = timerStartValue.toFixed(1)
       timerStartValue += 0.1
       currentPostObj.timeSpent += 0.1
       updateDataManager(dataManager, currentPostObj.tags)
