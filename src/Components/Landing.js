@@ -25,7 +25,7 @@ function Landing(props) {
         <button id="login" onClick={(e) => {changeLanding(e)}}>
           {clicked
           ? <Spinner className="loginSpinner"/>
-          : "Log In"
+          : "Enter"
           }   
         </button>
         <p id="disclaimer">
