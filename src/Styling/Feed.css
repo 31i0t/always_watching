@@ -6,7 +6,6 @@
 #feed {
     padding-top: 3rem;
     width: 100%;
-    opacity: 0;
 }
 
 .feedSpinner, .feedLoadingSpinner {
