@@ -25,12 +25,6 @@ function FeedHelper() {
   this.handlePlaceholderLoaded = (index) => {
     loadingPlaceholders.delete(index)
     
-    if(loadedPosts.has(index)) {
-      const placeholderContainer = 
-      this.postRefs[index].current.getElementsByClassName(
-        "postImgPlaceholder")[0]
-      placeholderContainer.classList.add("fadeOutPlaceholder")
-    }
     updateDisplayProperties()
   }
 
@@ -42,6 +36,14 @@ function FeedHelper() {
         "postImgPlaceholder")[0]
     placeholderContainer.classList.add("fadeOutPlaceholder")
     placeholderContainer.style.position = "absolute"
+    
+    setTimeout(() => {
+      const fadeOutPlaceholderToRemove = this.postRefs[index].current.getElementsByClassName(
+        "postImgPlaceholder")
+      if(fadeOutPlaceholderToRemove.length) {
+        fadeOutPlaceholderToRemove[0].remove()
+      }
+    }, 400)
 
     eventTarget.style.display = "block"
 
