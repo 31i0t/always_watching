@@ -7,7 +7,6 @@
     padding-top: 3rem;
     width: 100%;
     opacity: 0;
-    animation: fadein 1.5s ease forwards;
 }
 
 .feedSpinner, .feedLoadingSpinner {

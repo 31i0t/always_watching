@@ -34,8 +34,6 @@ function Landing(props) {
           created by real users.
         </p>
         <footer id="links">
-          <a href="https://makoski.net">Research</a>
-          <Circle className="circle"/>
           <a href="https://makoski.net">About</a>
           <Circle className="circle"/>
           <a href="https://makoski.net">Portfolio</a>
