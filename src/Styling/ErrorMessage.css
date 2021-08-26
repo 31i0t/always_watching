@@ -1,0 +1,28 @@
+.errorMessage {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 10;
+}
+
+.errorMessage h1{
+  all: unset;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  font-family: 'Segoe UI Semibold', 'Segoe UI Regular';
+  text-align: center;
+  font-size: 1rem;
+  color: #262626;
+  background-color: #FFFFFF;
+  border-radius: 0.3rem;
+  max-width: 60vw;
+  z-index: 10;
+  box-shadow: rgba(122, 122, 199, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}

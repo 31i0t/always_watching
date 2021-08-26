@@ -2,7 +2,7 @@
 <svg width="467px" height="435px" viewBox="0 0 467 435" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>like</title>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="like" transform="translate(0.705000, 0.085000)" fill="#262626" fill-rule="nonzero">
+        <g id="like" transform="translate(0.705000, 0.085000)" fill="#ED4956" fill-rule="nonzero">
             <path d="M41.744,243.757 C41.775,243.789 41.807,243.82 41.838,243.852 L232.777,434.785 L422.845,244.72 L428.305,239.051 C452.375,212.688 465.555,178.778 465.555,142.845 C465.555,104.69 450.695,68.818 423.715,41.838 C396.735,14.859 360.865,0 322.705,0 C289.565,0 258.143,16.214 232.777,36.843 C207.411,16.214 175.988,0 142.845,0 C104.69,0 68.818,14.859 41.838,41.838 C14.858,68.818 0,104.69 0,142.845 C0,178.781 13.18,212.69 37.254,239.055 L37.254,239.267 L41.744,243.757 Z" id="Fill-3"></path>
         </g>
     </g>

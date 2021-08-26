@@ -1,5 +1,5 @@
 .message {
-    z-index: 1;
+    z-index: 2;
     position: fixed;
     margin-left: 0.5rem;
     bottom: 1.5rem;
@@ -13,31 +13,44 @@
     border-radius: 0.5rem;
     color: #262626;
     padding: 0.7rem;
-    font-family: 'Segoe UI';
+    font-family: 'Segoe UI Regular';
     height: min-content;
     transform: translateX(-40%);
     opacity: 0;
-    transition: all 0.25s ease-out;
+}
+
+.messageAnimation {
+    animation-name: messageAnimation;
+    animation-duration: 5s;
+    animation-timing-function: ease-out;
+}
+
+
+@keyframes messageAnimation {
+    0% {
+        transform: translateX(-40%);
+        opacity: 0;
+    }
+    10% {
+        transform: translateX(0%);
+        opacity: 100;
+    }
+    90% {
+        transform: translateX(0%);
+        opacity: 100;
+    }
+    100% {
+        transform: translateX(30%);
+        opacity: 0;
+    }
 }
 
 .message h1, .message h2, .message h3 {
     margin: 0;
     padding-right: 0.5rem;
     font-size: 0.925rem;
-    font-weight: 400;
     white-space: wrap;
     max-width: 50vw;
-
-}
-
-.messageMiddle {
-    transform: translateX(0%);
-    opacity: 1;
-}
-
-.messageEnd {
-    transform: translateX(30%);
-    opacity: 0;
 }
 
 .importing, .doneImporting {
@@ -48,10 +61,5 @@
 }
 
 .importing {
-    animation: spinner .4s linear infinite;
-}
-
-.doneImporting {
-    opacity: 0;
-    animation: fadein 0.3s ease forwards
+    animation: spinner .4s linear infinite
 }

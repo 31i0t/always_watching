@@ -1,34 +1,41 @@
-import React, { useState, useEffect } from 'react'
-import DataPoint from './DataPoint'
-import './Data.css'
+import React, { useState, useEffect, useRef } from "react"
+import { v4 as uuid_v4 } from "uuid"
+import DataPoint from "./DataPoint"
+import "../Styling/Data.css"
+
 
 function Data(dataManager) {
-
+  const dataRef = useRef(null)
   const [data, setData] = useState(dataManager.getEngagingContentData())
 
   useEffect(() => {
-      let dataUpdate = setInterval(() => {
-        let engagingContentArray = dataManager.getEngagingContentData()
-        setData([...engagingContentArray])
-      }, 100)
-      
-      return () => {
-        clearInterval(dataUpdate)
-      }
-
+    const fadeInData = setTimeout(() => 
+      dataRef.current.classList.add("fadeInData"), 3000)
+    const dataUpdate = setInterval(() => {
+      const engagingContentArray = dataManager.getEngagingContentData()
+      setData([...engagingContentArray])
+    }, 100)
+    
+    return () => {
+      clearInterval(dataUpdate)
+      clearTimeout(fadeInData)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
   return (
-    <div id="data">
-        <h1>Engaging Media</h1>
+    <section ref={dataRef} id="data">
+      <h1>Engaging Media</h1>
+      <ul>
         {data.map((dataPoint) => {
           const props = {dataPoint}
           return (
-            <DataPoint {...props}/>
-          )
-        })}
-    </div>
-  );
+          <DataPoint key={uuid_v4()} {...props}/>
+          )})
+        }
+      </ul>
+    </section>
+  )
 }
 
-export default Data;
+export default Data

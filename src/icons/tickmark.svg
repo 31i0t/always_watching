@@ -1,0 +1,11 @@
+<svg viewBox="0 0 110 110">
+    <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+        <g transform="translate(-340.000000, -324.000000)">
+            <g id="Check" transform="translate(340.000000, 324.000000)">
+                <circle id="green_circle" fill="#3CB701" cx="55" cy="55" r="55"></circle>
+                <line x1="79.0952381" y1="38.2380952" x2="49.7619048" y2="72.8095238" id="line2" stroke="#FFFFFF" strokeWidth="9" strokeLinecap="round" transform="translate(64.428571, 55.523810) scale(-1, -1) translate(-64.428571, -55.523810) "></line>
+                <line x1="31.952381" y1="56.047619" x2="49.7619048" y2="72.8095238" id="line1" stroke="#FFFFFF" strokeWidth="9" strokeLinecap="round" transform="translate(40.857143, 64.428571) scale(-1, -1) translate(-40.857143, -64.428571) "></line>
+            </g>
+        </g>
+    </g>
+</svg>

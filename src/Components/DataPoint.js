@@ -1,17 +1,17 @@
-import React from 'react'
-import './DataPoint.css'
+import React from "react"
+import "../Styling/DataPoint.css"
+
 
 function DataPoint(props) {
-
-  var category = props.dataPoint[0]
-  var percentage = props.dataPoint[1]
+  const category = props.dataPoint[0]
+  const percentage = props.dataPoint[1]
   
   return (
-    <div className="category">
-        <h2>{category}</h2>
-        <h3>{percentage + "%"}</h3>
-    </div>
-  );
+    <li className="category">
+      <h2>{category}</h2>
+      <h3>{percentage + "%"}</h3>
+    </li>
+  )
 }
 
-export default DataPoint;
+export default DataPoint

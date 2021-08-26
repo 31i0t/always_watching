@@ -1,59 +1,39 @@
-import postData from './postData'
-
 class DataManager {
     constructor() {
-        this.data = this.#getInitialDataObject(postData.categories)
-        this.engagingContent = this.#getInitialEngagingContent(postData.categories)
-    }
-
-    #getInitialDataObject(array) {
-        let data = {}
-        for(let i = 0; i < array.length; i++) {
-            data[array[i]] = 0
-        }
-        return data
-    }
-
-    #getInitialEngagingContent(array) {
-        let engagingContent = {}
-        for(let i = 0; i < array.length; i++) {
-            engagingContent[array[i]] = 0
-        }
-        return engagingContent
+      this.data = {"animals": 0, "architecture": 0, "art": 0, "decor": 0, 
+        "food": 0, "men": 0, "nature": 0, "sports": 0, "travel": 0, 
+        "women": 0}
     }
 
     getEngagingContentData = () => {        
-        let engagingContentArray = []
+      const engagingContentArray = []
 
-        let totalTimeSpent = 0
+      let engagementSum = 0
 
-        for(let category in this.data) {
-            totalTimeSpent += this.data[category] ** 2
+      for(let category in this.data) {
+        engagementSum += this.data[category]
+      }
+
+      for(let category in this.data) {
+        let percentage = Math.round(((this.data[category]) / engagementSum) * 100)
+        if(percentage >= 10) {
+          engagingContentArray.push([category, percentage])
         }
+      }
 
-        for(let category in this.engagingContent) {
-            let percentage = Math.round(((this.data[category] ** 2) / totalTimeSpent) * 100)
-
-            this.engagingContent[category] = percentage
-
-            if(percentage >= 20) {
-                engagingContentArray.push([category, percentage])
-            }
+      engagingContentArray.sort((a,b) => {
+        if(a[1] > b[1]) {
+          return -1
         }
+        else if(a[1] < b[1]) {
+          return 1
+        }
+        else {
+          return 0
+        }
+      })
 
-        engagingContentArray.sort((a,b) => {
-            if(a[1] > b[1]) {
-                return -1
-            }
-            else if(a[1] < b[1]) {
-                return 1
-            }
-            else {
-                return 0
-            }
-        })
-
-        return engagingContentArray
+      return engagingContentArray
     }
 }
 

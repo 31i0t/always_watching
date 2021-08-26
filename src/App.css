@@ -1,6 +1,5 @@
-#App {
-    max-width: 60rem;
-    margin:auto;
+h1, h2, h3 {
+    font-weight: normal;
 }
 
 html, body {
@@ -8,27 +7,26 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-}
-
-@font-face {
-    font-family: 'Segoe UI';
-    src: url('./fonts/SegoeUI.eot');
-    src: url('./fonts/SegoeUI.eot?#iefix') format('embedded-opentype'),
-        url('./fonts/SegoeUI.woff2') format('woff2'),
-        url('./fonts/SegoeUI.woff') format('woff'),
-        url('./fonts/SegoeUI.ttf') format('truetype'),
-        url('./fonts/SegoeUI.svg#SegoeUI') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
+}    
 
 @keyframes spinner {
     to {transform: rotate(360deg);}
-  }
+}
 
 @keyframes fadein {
+    0% {
+        opacity: 0
+    }
     100% {
         opacity: 1
+    }
+}
+
+@media (min-width: 32rem) {
+    body {
+        background-color: #FAFAFA;
+    }
+    #landing #content #disclaimer {
+        background-color: #FAFAFA;
     }
 }
