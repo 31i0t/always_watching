@@ -1,34 +1,34 @@
 #data {
-    z-index: 1;
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    top: 0.5rem;
-    margin-left: 0.5rem;
-    height: 0;
-    font-family: 'Segoe UI Semibold', 'Segoe UI Regular';
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
+  z-index: 1;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 0.5rem;
+  margin-left: 0.5rem;
+  height: 0;
+  font-family: 'Segoe UI Semibold', 'Segoe UI Regular';
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .fadeInData {
-    display: flex;
-    animation: fadein 0.5s ease forwards;
+  display: flex;
+  animation: fadein 0.5s ease forwards;
 }
 
 #data h1 {
-    width: min-content;
-    margin: 0;
-    padding: 0.5rem;
-    background-color: white;
-    font-size: 0.875rem;
-    color: #262626;
-    box-shadow: rgba(122, 122, 199, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    border-radius: 0.5rem;
-    margin-bottom: 0.5rem;
+  width: min-content;
+  margin: 0;
+  padding: 0.5rem;
+  background-color: white;
+  font-size: 0.875rem;
+  color: #262626;
+  box-shadow: rgba(122, 122, 199, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 #data ul, #data li {
-    all: unset;
+  all: unset;
 }

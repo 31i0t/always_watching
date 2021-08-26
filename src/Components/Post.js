@@ -54,7 +54,8 @@ function Post(props) {
       </header>
       <div className="content">
         <div className="postImgPlaceholder">
-          <img onLoad={() => feedHelper.handlePlaceholderLoaded(index)} 
+          <img className="postImgPlaceholderImg" 
+            onLoad={() => feedHelper.handlePlaceholderLoaded(index)} 
             src={currentPost.placeholder} 
             loading="eager" alt="Post Placeholder">
           </img>
@@ -62,7 +63,7 @@ function Post(props) {
         <img className="postImg" 
           onLoad={(e) => 
             feedHelper.handlePostLoaded(index, dataManager, e.target)}
-           srcSet={currentPost.srcset} 
+          srcSet={currentPost.srcset} 
           sizes="(max-width: 30rem) 100vw, 30rem" loading="eager" 
           alt={"Post Item:" + currentPost.caption}
           onError={() => updateErrorMessage(true)}>

@@ -24,6 +24,10 @@ function FeedHelper() {
 
   this.handlePlaceholderLoaded = (index) => {
     loadingPlaceholders.delete(index)
+
+    if(loadedPosts.has(index)) {
+      removePlaceholder(index)
+    }
     
     updateDisplayProperties()
   }
@@ -33,23 +37,32 @@ function FeedHelper() {
 
     const placeholderContainer = 
       this.postRefs[index].current.getElementsByClassName(
-        "postImgPlaceholder")[0]
-    placeholderContainer.classList.add("fadeOutPlaceholder")
-    placeholderContainer.style.position = "absolute"
-    
-    setTimeout(() => {
-      const fadeOutPlaceholderToRemove = this.postRefs[index].current.getElementsByClassName(
         "postImgPlaceholder")
-      if(fadeOutPlaceholderToRemove.length) {
-        fadeOutPlaceholderToRemove[0].remove()
-      }
-    }, 400)
+    
+    if(placeholderContainer.length) {
+      placeholderContainer[0].style.opacity = "0"
+      placeholderContainer[0].style.position = "absolute"
+    }
 
     eventTarget.style.display = "block"
 
-    this.handlePlaceholderLoaded(index)
     updateActivePost()
     trackCurrentPost(dataManager)
+  }
+
+  const removePlaceholder = (index) => {
+    const postImgPlaceholder = 
+      this.postRefs[index].current.getElementsByClassName("postImgPlaceholder")
+    if(postImgPlaceholder.length) {
+      postImgPlaceholder[0].remove()
+    }
+
+    //display real post after removing placeholder
+    const postImg = 
+      this.postRefs[index].current.getElementsByClassName("postImg")
+    if(postImg.length) {
+      postImg[0].style.display = "block"
+    }
   }
 
   const updateDisplayProperties = () => {
@@ -71,6 +84,9 @@ function FeedHelper() {
     while(i < this.currentPosts.length) {
       if(!loadingPlaceholders.has(i)) {
         this.postRefs[i].current.style.display = "block"
+        if(loadedPosts.has(i)) {
+          removePlaceholder(i)
+        }
 
         if(i === this.currentPosts.length - 1) {
           postsLoaded = true

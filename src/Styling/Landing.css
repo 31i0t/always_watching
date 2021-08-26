@@ -1,119 +1,119 @@
 #landing {
-    display: flex;
-    flex-direction: column;    
+  display: flex;
+  flex-direction: column;    
 }
 
 #landing #eye {
-    display: block;
-    margin: auto;
-    margin-top: 10%;
-    margin-bottom: 5%;
-    width: 100%;
-    max-width: 55rem;
-    height: 35vh;
-    min-height: 2rem;
-    max-height: calc(100vw / 2);
-    animation: blink 3s ease infinite;
-    animation-delay: 1s;
-    fill: #262626;
+  display: block;
+  margin: auto;
+  margin-top: 10%;
+  margin-bottom: 5%;
+  width: 100%;
+  max-width: 55rem;
+  height: 35vh;
+  min-height: 2rem;
+  max-height: calc(100vw / 2);
+  animation: blink 3s ease infinite;
+  animation-delay: 1s;
+  fill: #262626;
 }
 
 @media (max-width: 25rem) {
-    #landing #eye {
-        margin-top: 30%;
-    }
+  #landing #eye {
+    margin-top: 30%;
+  }
 }
 
 @keyframes blink {
-    5% {
-        transform: scaleY(0.01);
-    }
-    10% {
-        transform: scaleY(1);
-    }
-    100% {
-        transform: scaleY(1);
-    }
+  5% {
+    transform: scaleY(0.01);
+  }
+  10% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
 }
 
 #landing #content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    height: 50%;
-    font-family: 'Segoe UI Regular';
-    font-size: 0.875rem;
-    color: #262626;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 50%;
+  font-family: 'Segoe UI Regular';
+  font-size: 0.875rem;
+  color: #262626;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
 }
 
 #landing #content #login {
-    font-family: 'Segoe UI Semibold', 'Segoe UI Regular';
-    z-index: 1;
-    background-color: #FFFFFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    box-shadow: rgba(122, 122, 199, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    border-radius: 0.3rem;
-    border: 0;
-    transition: all 0.3s ease;
-    width: 9.75rem;
-    max-width: 100%;
-    min-height: 2.3rem;
-    height: 2.3rem;
+  font-family: 'Segoe UI Semibold', 'Segoe UI Regular';
+  z-index: 1;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: rgba(122, 122, 199, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border-radius: 0.3rem;
+  border: 0;
+  transition: all 0.3s ease;
+  width: 9.75rem;
+  max-width: 100%;
+  min-height: 2.3rem;
+  height: 2.3rem;
 }
 
 .loginSpinner {
-    fill: white;
-    display: flex;
-    height: 80%;
-    animation: spinner .4s linear infinite;
+  fill: white;
+  display: flex;
+  height: 80%;
+  animation: spinner .4s linear infinite;
 }
 
 .loading {
-    background-color: #2495F6 !important;
+  background-color: #2495F6 !important;
 }
 
 #landing #content #login:hover {
-    background-color: #2495F6;
-    color: white;
-    cursor: pointer;
-    line-height: max-content;
+  background-color: #2495F6;
+  color: white;
+  cursor: pointer;
+  line-height: max-content;
 }
 
 #landing #content #disclaimer {
-    max-width: 15rem;
-    text-align: center;
-    font-style: italic;
-    background-color: white;
+  max-width: 15rem;
+  text-align: center;
+  font-style: italic;
+  background-color: white;
 }
 
 #landing #content #links {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-items: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-items: center;
+  align-items: center;
 }
 
 #landing #content #links a:hover {
-    color: #2495F6;
-    cursor: pointer;
+  color: #2495F6;
+  cursor: pointer;
 }
 
 #landing #content #links .circle {
-    margin: 0 0.5rem;
-    width: 0.3rem;
-    height: 0.3rem;
+  margin: 0 0.5rem;
+  width: 0.3rem;
+  height: 0.3rem;
 }
 
 #landing #content #links a {
-    all: unset;
+  all: unset;
 }

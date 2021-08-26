@@ -1,36 +1,36 @@
 #App {
-    max-width: 60rem;
-    margin: auto;
+  max-width: 60rem;
+  margin: auto;
 }
 
 #feed {
-    padding-top: 3rem;
-    width: 100%;
+  padding-top: 3rem;
+  width: 100%;
 }
 
 .feedSpinner, .feedLoadingSpinner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .feedSpinner svg, .feedLoadingSpinner svg {
-    animation: spinner .4s linear infinite;
-    width: 5rem;
-    height: 5rem;
-    fill: #2495f6;
-    margin: 2rem 0;
+  animation: spinner .4s linear infinite;
+  width: 5rem;
+  height: 5rem;
+  fill: #2495f6;
+  margin: 2rem 0;
 }
 
 .feedLoadingSpinner {
-    padding-top: 3rem;
+  padding-top: 3rem;
 }
 
 @media (min-width: 32rem) {
-    .post {
-        border-radius: 3px;
-        background-color: #FFFFFF;
-        border: 1px solid #dbdbdb;
-        padding-bottom: 0.5rem;
-    }
+  .post {
+    border-radius: 3px;
+    background-color: #FFFFFF;
+    border: 1px solid #dbdbdb;
+    padding-bottom: 0.5rem;
+  }
 }
