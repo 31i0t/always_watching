@@ -71,7 +71,7 @@ function Feed(props) {
     const request = new XMLHttpRequest()
     const [method, endpoint] = feedHelper.getEndPoints(dataManager)
 
-    request.open(method, "https://api.alwayswatching.io/" + endpoint + "/")
+    request.open(method, "http://localhost:8000/" + endpoint + "/")
 
     let data = [...feedHelper.currentPosts]
     if(method === "POST" && endpoint === "prediction") {

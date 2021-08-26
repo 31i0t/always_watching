@@ -24,6 +24,13 @@ function FeedHelper() {
 
   this.handlePlaceholderLoaded = (index) => {
     loadingPlaceholders.delete(index)
+    
+    if(loadedPosts.has(index)) {
+      const placeholderContainer = 
+      this.postRefs[index].current.getElementsByClassName(
+        "postImgPlaceholder")[0]
+      placeholderContainer.classList.add("fadeOutPlaceholder")
+    }
     updateDisplayProperties()
   }
 
