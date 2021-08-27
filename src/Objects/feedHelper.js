@@ -22,14 +22,14 @@ function FeedHelper() {
     }
   }
 
-  this.handlePlaceholderLoaded = (index) => {
+  this.handlePlaceholderLoaded = (index, dataManager) => {
     loadingPlaceholders.delete(index)
 
     if(loadedPosts.has(index)) {
       removePlaceholder(index)
     }
     
-    updateDisplayProperties()
+    updateDisplayProperties(dataManager)
   }
 
   this.handlePostLoaded = (index, dataManager, eventTarget) => {
@@ -65,7 +65,7 @@ function FeedHelper() {
     }
   }
 
-  const updateDisplayProperties = () => {
+  const updateDisplayProperties = (dataManager) => {
     let i = this.currentPosts.length - 1
 
     //get first inivisible post
@@ -84,8 +84,14 @@ function FeedHelper() {
     while(i < this.currentPosts.length) {
       if(!loadingPlaceholders.has(i)) {
         this.postRefs[i].current.style.display = "block"
+
         if(loadedPosts.has(i)) {
           removePlaceholder(i)
+        }
+        if(i === 0) { 
+          setTimeout(() => {
+            dataManager.dataRef[0].current.classList.add("fadeInData")
+          }, 3000)
         }
 
         if(i === this.currentPosts.length - 1) {

@@ -3,6 +3,7 @@ class DataManager {
       this.data = {"animals": 0, "architecture": 0, "art": 0, "decor": 0, 
         "food": 0, "men": 0, "nature": 0, "sports": 0, "travel": 0, 
         "women": 0}
+      this.dataRef = []
     }
 
     getEngagingContentData = () => {        

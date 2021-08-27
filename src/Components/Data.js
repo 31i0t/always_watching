@@ -9,8 +9,8 @@ function Data(dataManager) {
   const [data, setData] = useState(dataManager.getEngagingContentData())
 
   useEffect(() => {
-    const fadeInData = setTimeout(() => 
-      dataRef.current.classList.add("fadeInData"), 3000)
+    dataManager.dataRef.push(dataRef)
+
     const dataUpdate = setInterval(() => {
       const engagingContentArray = dataManager.getEngagingContentData()
       setData([...engagingContentArray])
@@ -18,14 +18,13 @@ function Data(dataManager) {
     
     return () => {
       clearInterval(dataUpdate)
-      clearTimeout(fadeInData)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
   return (
     <section ref={dataRef} id="data">
-      <h1>Engaging Media</h1>
+      <h1>You are interested in:</h1>
       <ul>
         {data.map((dataPoint) => {
           const props = {dataPoint}
