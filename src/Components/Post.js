@@ -18,6 +18,8 @@ function Post(props) {
   const [likes, setLikes] = useState(currentPost.likes)
   const [liked, setLiked] = useState(false)
   const [bookmarked, setBookmarked] = useState(false)
+  const [postLoaded, setPostLoaded] = useState(false)
+  const [placeholderLoaded, setPlaceholderLoaded] = useState(false)
 
   const updateLiked = (likeBtn) => {
     likeBtn = likeBtn.closest("button")
@@ -37,6 +39,22 @@ function Post(props) {
     feedHelper.postRefs.push(postRef)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  useEffect(() => {
+    if(postLoaded) {
+      const imgRef = postRef.current.getElementsByClassName(
+        "postImg")[0]
+      feedHelper.handlePostLoaded(index, dataManager, imgRef)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [postLoaded])
+
+  useEffect(() => {
+    if(placeholderLoaded) {
+      feedHelper.handlePlaceholderLoaded(index, dataManager)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [placeholderLoaded])
   
   return (
     <article ref={postRef} className="post">
@@ -55,15 +73,13 @@ function Post(props) {
       <div className="content">
         <div className="postImgPlaceholder">
           <img className="postImgPlaceholderImg" 
-            onLoad={() => 
-              feedHelper.handlePlaceholderLoaded(index, dataManager)}
+            onLoad={() => setPlaceholderLoaded(true)}
             src={currentPost.placeholder} 
             loading="eager" alt="Post Placeholder">
           </img>
         </div>
         <img className="postImg" 
-          onLoad={(e) => 
-            feedHelper.handlePostLoaded(index, dataManager, e.target)}
+          onLoad={() => setPostLoaded(true)}
           srcSet={currentPost.srcset} 
           sizes="(max-width: 30rem) 100vw, 30rem" loading="eager" 
           alt={"Post Item:" + currentPost.caption}
