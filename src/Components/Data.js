@@ -18,6 +18,7 @@ function Data(dataManager) {
     
     return () => {
       clearInterval(dataUpdate)
+      dataManager.dataRef.pop()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
