@@ -75,15 +75,15 @@ function Post(props) {
           <img className="postImgPlaceholderImg" 
             onLoad={() => setPlaceholderLoaded(true)}
             src={currentPost.placeholder} 
-            loading="eager" alt="Post Placeholder">
+            loading="eager" alt="Post Placeholder"
+            onError={() => updateErrorMessage(true)}>
           </img>
         </div>
         <img className="postImg" 
           onLoad={() => setPostLoaded(true)}
           srcSet={currentPost.srcset} 
           sizes="(max-width: 30rem) 100vw, 30rem" loading="eager" 
-          alt={"Post Item:" + currentPost.caption}
-          onError={() => updateErrorMessage(true)}>
+          alt={"Post Item:" + currentPost.caption}>
         </img>
       </div>
       <section className="action-bar">
