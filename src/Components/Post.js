@@ -82,7 +82,7 @@ function Post(props) {
         <img className="postImg" 
           onLoad={() => setPostLoaded(true)}
           srcSet={currentPost.srcset} 
-          sizes="(max-width: 30rem) 100vw, 30rem" loading="eager" 
+          sizes="(max-width: 30rem) 100vw, 30rem" loading="lazy" 
           alt={"Post Item:" + currentPost.caption}>
         </img>
       </div>
